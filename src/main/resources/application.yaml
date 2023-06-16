@@ -1,0 +1,34 @@
+
+spring:
+  application:
+    name: CARD APPLICATION
+
+  datasource:
+    # url: jdbc:postgresql://localhost:5432/jwt_security
+    #3driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cardapp_db
+    username: root
+    password:
+  #  driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    #  database: postgresql
+    # database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+application:
+  security:
+    jwt:
+      secret-key: deIUAW2vMqvlHVbTqI+C8bY2b3+f7HF0DH41IWfLHs2XqaBmgHgkPfS7K2fJOY2v
+      expiration: 7200000 # 2 hours
+      refresh-token:
+        expiration: 8400000 # 1 days
+server:
+  port: 9000
+  servlet:
+    application-display-name: CARD APPLICATION
+    context-path: /api/v1

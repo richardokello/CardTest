@@ -44,7 +44,7 @@ public class JwtService {
                .parseClaimsJws(token)
                .getBody();
     }
-    public <T> T extractOneClaim(String token, Function<Claims,T>claimParser){
+    public <R> R extractOneClaim(String token, Function<Claims,R>claimParser){
         final  Claims claims=extractAllClaims(token);
         return claimParser.apply(claims);
     }
